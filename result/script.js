@@ -111,7 +111,7 @@ window.addEventListener("load", function () {
             </table>
             <p id="computerGenerated" class="t sa">Computer Generated Provisional Grade Sheet</p>
           </div>
-        </div>
+      </div>
     `;
 
   // Dynamic Table Generation for Marks
@@ -153,20 +153,56 @@ window.addEventListener("load", function () {
   }
 
   document.getElementById("downloadBtn").addEventListener("click", function () {
-    console.log("Download button clicked");
-    // Create a new jsPDF instance
-    const doc = new jsPDF();
+    var contentElement = document.getElementById("box"); // Get the element to convert to PDF
 
-    // Get the result box content only
-    const resultBox = document.getElementById("box");
+    if (contentElement) {
+      // Calculate the scale factor to fit content within the page dimensions
+      var contentWidth = contentElement.offsetWidth;
+      var contentHeight = contentElement.offsetHeight;
 
-    // Add content to the PDF from the HTML content
-    doc.html(resultBox, {
-      callback: function (doc) {
-        // Download the PDF after rendering the content
-        doc.save("result.pdf");
-      },
-      margin: [10, 10, 10, 10], // Optional margins
-    });
+      // Define the page size for PDF in mm (A4 size in landscape)
+      var pageWidth = 297; // Landscape A4 width in mm
+      var pageHeight = 210; // Landscape A4 height in mm
+
+      // Adjust the scale so that the content fits within the page dimensions without losing quality
+      var scaleX = pageWidth / contentWidth;
+      var scaleY = pageHeight / contentHeight;
+      var scale = Math.min(scaleX, scaleY); // Use the smaller scale to fit content on the page
+
+      // Apply a custom CSS transformation to resize the content to fit the page
+      contentElement.style.transform = `scale(${scale})`;
+      contentElement.style.transformOrigin = "top left";
+      contentElement.style.width = `${contentWidth * scale}px`; // Resize content width
+      contentElement.style.height = `${contentHeight * scale}px`; // Resize content height
+
+      var options = {
+        margin: 10, // Adds margins to the PDF
+        filename: "content.pdf",
+        image: { type: "jpeg", quality: 1 }, // High quality image
+        html2canvas: {
+          scale: 2, // High quality rendering
+          useCORS: true, // Ensures images from external domains are loaded properly
+          logging: false,
+          letterRendering: true,
+        },
+        jsPDF: {
+          unit: "mm",
+          format: [297, 210], // A4 landscape
+          orientation: "landscape",
+          putOnlyUsedFonts: true, // Optimizes PDF file size
+          compress: true, // Compress PDF for better quality
+        },
+      };
+
+      // Create PDF from the content element
+      html2pdf().from(contentElement).set(options).save();
+
+      // Reset the scaling after generating the PDF
+      contentElement.style.transform = ""; // Remove the scaling
+      contentElement.style.width = ""; // Reset width
+      contentElement.style.height = ""; // Reset height
+    } else {
+      console.error("Element not found: #content");
+    }
   });
 });

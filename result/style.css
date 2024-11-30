@@ -146,6 +146,18 @@ td {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 
+/* Active button effect (when clicked) */
+#downloadBtn:active {
+  transform: translateY(2px); /* Press the button down */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
+}
+
+/* Focus effect (for accessibility) */
+#downloadBtn:focus {
+  outline: none; /* Remove the default focus outline */
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.5); /* Green outline for focus */
+}
+
 /* utils css */
 .text-center {
   text-align: center;
