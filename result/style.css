@@ -1,0 +1,282 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+}
+
+#box {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 1210px;
+  padding: 35px 25px;
+  gap: 15px;
+}
+
+#headBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#title-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#university-logo {
+  margin-left: -25px;
+}
+#titleBox {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  margin-left: -100px;
+}
+#titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+#captions {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#marksBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  border: 0.1px solid rgba(0, 0, 0, 0.1);
+  height: 100%;
+  padding: 75px 60px;
+}
+
+#studentDetails {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 15px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.row :first-child {
+  width: 75%;
+}
+.row :last-child {
+  width: 25%;
+}
+
+#marksDetails {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 15px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid black;
+}
+
+#studentMarksTable tr:first-child {
+  text-align: center;
+}
+
+#studentMarksTable tr td {
+  padding: 10px;
+}
+
+#creditsTable {
+  text-align: center;
+}
+#creditsTable tr td {
+  padding: 15px;
+}
+
+.download {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 25px;
+}
+
+#downloadBtn {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  border: none; /* No border */
+  padding: 12px 24px; /* Add padding */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Make the text bold */
+  width: auto; /* Adjust the button's width to the text content */
+  display: inline-block; /* Align with other elements */
+}
+
+/* Hover effect */
+#downloadBtn:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-2px); /* Slightly raise the button on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+/* utils css */
+.text-center {
+  text-align: center;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+#computerGenerated {
+  text-align: right;
+  margin-top: -12px;
+}
+/* font familys */
+@font-face {
+  font-family: Georgia-Bold_r;
+  src: url("fonts/Georgia-Bold_r.woff") format("woff");
+}
+
+@font-face {
+  font-family: Georgia_w;
+  src: url("fonts/Georgia_w.woff") format("woff");
+}
+
+@font-face {
+  font-family: Mangal-Bold_h;
+  src: url("fonts/Mangal-Bold_h.woff") format("woff");
+}
+
+@font-face {
+  font-family: SegoeUI-Bold_c;
+  src: url("fonts/SegoeUI-Bold_c.woff") format("woff");
+}
+
+@font-face {
+  font-family: SegoeUI_10;
+  src: url("fonts/SegoeUI_10.woff") format("woff");
+}
+
+@font-face {
+  font-family: TimesNewRomanPS-BoldMT_15;
+  src: url("fonts/TimesNewRomanPS-BoldMT_15.woff") format("woff");
+}
+
+@font-face {
+  font-family: TimesNewRomanPSMT_1a;
+  src: url("fonts/TimesNewRomanPSMT_1a.woff") format("woff");
+}
+
+/* font sizes */
+
+.s0 {
+  font-size: 14px;
+  font-family: SegoeUI-Bold_c;
+  color: #000;
+}
+.s1 {
+  font-size: 21px;
+  font-family: Mangal-Bold_h;
+  color: #0172ba;
+}
+.s2 {
+  font-size: 31px;
+  font-family: Georgia-Bold_r;
+  color: #0172ba;
+}
+.s3 {
+  font-size: 16px;
+  font-family: Georgia-Bold_r;
+  color: #0172ba;
+}
+.s4 {
+  font-size: 17px;
+  font-family: Georgia_w;
+  color: #000;
+}
+.s5 {
+  font-size: 17px;
+  font-family: SegoeUI-Bold_c;
+  color: #000;
+}
+.s6 {
+  font-size: 16px;
+  font-family: Georgia-Bold_r;
+  color: #000;
+}
+.s7 {
+  font-size: 16px;
+  font-family: SegoeUI-Bold_c;
+  color: #000;
+}
+.s8 {
+  font-size: 14px;
+  font-family: Georgia_w;
+  color: #000;
+}
+.s9 {
+  font-size: 14px;
+  font-family: Georgia-Bold_r;
+  color: #000;
+}
+.sa {
+  font-size: 14px;
+  font-family: SegoeUI_10;
+  color: #000;
+}
+.sb {
+  font-size: 14px;
+  font-family: TimesNewRomanPS-BoldMT_15;
+  color: #000;
+}
+.sc {
+  font-size: 12px;
+  font-family: TimesNewRomanPS-BoldMT_15;
+  color: #000;
+}
+.sd {
+  font-size: 10px;
+  font-family: TimesNewRomanPSMT_1a;
+  color: #000;
+}
+.se {
+  font-size: 10px;
+  font-family: TimesNewRomanPS-BoldMT_15;
+  color: #000;
+}
+.sf {
+  font-size: 9px;
+  font-family: TimesNewRomanPS-BoldMT_15;
+  color: #000;
+}

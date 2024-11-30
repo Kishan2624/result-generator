@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple PDF Test</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </head>
+  <body>
+    <button id="downloadBtn">Download PDF</button>
+
+    <script>
+      document
+        .getElementById("downloadBtn")
+        .addEventListener("click", function () {
+          const { jsPDF } = window.jspdf;
+          const doc = new jsPDF();
+          doc.text("Hello, this is a simple PDF", 10, 10);
+          doc.save("simple-result.pdf");
+        });
+    </script>
+  </body>
+</html>
