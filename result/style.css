@@ -84,9 +84,11 @@
 
 .row {
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
 }
+
 .row :first-child {
   width: 65%;
 }
