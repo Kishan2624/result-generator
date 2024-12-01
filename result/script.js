@@ -23,6 +23,7 @@ window.addEventListener("load", function () {
   const resultBox = document.getElementById("box");
   resultBox.innerHTML = "";
   resultBox.innerHTML = `
+    <div id="pdfBox">
       <div id="headBox">
           <p id="abcId" class="t s0">ABC ID: ${abcId}</p>
           <div id="title-image">
@@ -112,6 +113,7 @@ window.addEventListener("load", function () {
             <p id="computerGenerated" class="t sa">Computer Generated Provisional Grade Sheet</p>
           </div>
       </div>
+    </div>
     `;
 
   // Dynamic Table Generation for Marks
@@ -153,7 +155,7 @@ window.addEventListener("load", function () {
   }
 
   document.getElementById("downloadBtn").addEventListener("click", function () {
-    var contentElement = document.getElementById("box"); // Get the element to convert to PDF
+    var contentElement = document.getElementById("pdfBox"); // Get the element to convert to PDF
 
     if (contentElement) {
       // Calculate the scale factor to fit content within the page dimensions

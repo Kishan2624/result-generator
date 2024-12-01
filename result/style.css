@@ -10,11 +10,19 @@
 }
 
 #box {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   width: 1210px;
   padding: 35px 25px;
+  gap: 15px;
+}
+
+#pdfBox {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  white-space: nowrap; /* Prevent text from wrapping */
+  width: 100%;
   gap: 15px;
 }
 
