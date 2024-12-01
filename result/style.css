@@ -4,19 +4,15 @@
   box-sizing: border-box;
 }
 
-#content {
-  display: flex;
-  justify-content: center;
-}
-
 #box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 1210px;
+  min-width: 1210px;
   padding: 35px 25px;
   gap: 15px;
+  overflow-x: auto;
 }
 
 #pdfBox {
@@ -24,8 +20,7 @@
   flex-direction: column;
   width: 100%;
   gap: 15px;
-  transform: scale(0.95); /* Shrink content */
-  transform-origin: top; /* Keep alignment */
+  overflow-x: auto;
 }
 
 #headBox {
@@ -83,7 +78,7 @@
 #studentDetails {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   gap: 15px;
 }
 
@@ -306,50 +301,4 @@ td {
   font-size: 9px;
   font-family: TimesNewRomanPS-BoldMT_15;
   color: #000;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  #box {
-    padding: 15px;
-    gap: 10px;
-  }
-
-  #marksBox {
-    padding: 20px;
-  }
-
-  #headBox {
-    padding: 15px;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  #downloadBtn {
-    font-size: 14px;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  #content {
-    padding: 5px;
-  }
-
-  #marksBox {
-    padding: 15px;
-  }
-
-  #downloadBtn {
-    font-size: 12px;
-    padding: 8px 16px;
-  }
-
-  td {
-    font-size: 12px;
-    padding: 5px;
-  }
 }

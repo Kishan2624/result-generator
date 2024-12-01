@@ -156,17 +156,29 @@ window.addEventListener("load", function () {
 
   document.getElementById("downloadBtn").addEventListener("click", function () {
     var contentElement = document.getElementById("pdfBox"); // Get the element to convert to PDF
+    // Temporarily apply scaling to the content
+    contentElement.style.transform = "scale(0.95)";
+    contentElement.style.transformOrigin = "top"; // Ensure scaling is consistent
 
     if (contentElement) {
       var options = {
         margin: 2, // Add a 1-inch margin around the content
-        filename: "document.pdf",
+        filename: "result.pdf",
         image: { type: "jpeg", quality: 1 },
         html2canvas: { scale: 2, letterRendering: true },
         jsPDF: { unit: "mm", format: "letter", orientation: "landscape" },
       };
-      // Create PDF from the content element
-      html2pdf().set(options).from(contentElement).save();
+      // Wait for the transformation to apply, then generate the PDF
+      setTimeout(() => {
+        html2pdf()
+          .set(options)
+          .from(contentElement)
+          .save()
+          .then(() => {
+            // Revert the scaling after the PDF is saved
+            contentElement.style.transform = "scale(1)";
+          });
+      }, 100); // Add a slight delay to ensure the scaling takes effect
     } else {
       console.error("Element not found: #content");
     }
