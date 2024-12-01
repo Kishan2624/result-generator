@@ -158,51 +158,15 @@ window.addEventListener("load", function () {
     var contentElement = document.getElementById("pdfBox"); // Get the element to convert to PDF
 
     if (contentElement) {
-      // Calculate the scale factor to fit content within the page dimensions
-      var contentWidth = contentElement.offsetWidth;
-      var contentHeight = contentElement.offsetHeight;
-
-      // Define the page size for PDF in mm (A4 size in landscape)
-      var pageWidth = 297; // Landscape A4 width in mm
-      var pageHeight = 210; // Landscape A4 height in mm
-
-      // Adjust the scale so that the content fits within the page dimensions without losing quality
-      var scaleX = pageWidth / contentWidth;
-      var scaleY = pageHeight / contentHeight;
-      var scale = Math.min(scaleX, scaleY); // Use the smaller scale to fit content on the page
-
-      // Apply a custom CSS transformation to resize the content to fit the page
-      contentElement.style.transform = `scale(${scale})`;
-      contentElement.style.transformOrigin = "top left";
-      contentElement.style.width = `${contentWidth * scale}px`; // Resize content width
-      contentElement.style.height = `${contentHeight * scale}px`; // Resize content height
-
       var options = {
-        margin: 10, // Adds margins to the PDF
-        filename: "content.pdf",
-        image: { type: "jpeg", quality: 1 }, // High quality image
-        html2canvas: {
-          scale: 2, // High quality rendering
-          useCORS: true, // Ensures images from external domains are loaded properly
-          logging: false,
-          letterRendering: true,
-        },
-        jsPDF: {
-          unit: "mm",
-          format: [297, 210], // A4 landscape
-          orientation: "landscape",
-          putOnlyUsedFonts: true, // Optimizes PDF file size
-          compress: true, // Compress PDF for better quality
-        },
+        margin: 2, // Add a 1-inch margin around the content
+        filename: "document.pdf",
+        image: { type: "jpeg", quality: 1 },
+        html2canvas: { scale: 2, letterRendering: true },
+        jsPDF: { unit: "mm", format: "letter", orientation: "landscape" },
       };
-
       // Create PDF from the content element
-      html2pdf().from(contentElement).set(options).save();
-
-      // Reset the scaling after generating the PDF
-      contentElement.style.transform = ""; // Remove the scaling
-      contentElement.style.width = ""; // Reset width
-      contentElement.style.height = ""; // Reset height
+      html2pdf().set(options).from(contentElement).save();
     } else {
       console.error("Element not found: #content");
     }

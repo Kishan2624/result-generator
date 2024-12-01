@@ -12,6 +12,8 @@
 #box {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 1210px;
   padding: 35px 25px;
   gap: 15px;
@@ -20,16 +22,19 @@
 #pdfBox {
   display: flex;
   flex-direction: column;
-  overflow-x: auto; /* Allow horizontal scrolling */
-  white-space: nowrap; /* Prevent text from wrapping */
   width: 100%;
   gap: 15px;
+  transform: scale(0.95); /* Shrink content */
+  transform-origin: top; /* Keep alignment */
 }
 
 #headBox {
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-top: 25px;
 }
 
 #title-image {
@@ -50,6 +55,7 @@
   gap: 12px;
   margin-left: -100px;
 }
+
 #titles {
   display: flex;
   flex-direction: column;
@@ -71,7 +77,7 @@
   gap: 10px;
   border: 0.1px solid rgba(0, 0, 0, 0.1);
   height: 100%;
-  padding: 75px 60px;
+  padding: 50px 50px;
 }
 
 #studentDetails {
@@ -87,10 +93,10 @@
   justify-content: space-between;
 }
 .row :first-child {
-  width: 75%;
+  width: 65%;
 }
 .row :last-child {
-  width: 25%;
+  width: 35%;
 }
 
 #marksDetails {
@@ -106,7 +112,8 @@ table {
 }
 
 td {
-  border: 1px solid black;
+  border: 0.5px solid black;
+  padding: 10px;
 }
 
 #studentMarksTable tr:first-child {
@@ -131,39 +138,39 @@ td {
   padding: 25px;
 }
 
+/* Download Button */
+.download {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 25px;
+}
+
 #downloadBtn {
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  border: none; /* No border */
-  padding: 12px 24px; /* Add padding */
-  font-size: 16px; /* Font size */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  text-align: center; /* Center the text */
-  font-weight: bold; /* Make the text bold */
-  width: auto; /* Adjust the button's width to the text content */
-  display: inline-block; /* Align with other elements */
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  font-weight: bold;
 }
 
-/* Hover effect */
+/* Hover Effect */
 #downloadBtn:hover {
-  background-color: #45a049; /* Darker green on hover */
-  transform: translateY(-2px); /* Slightly raise the button on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Active button effect (when clicked) */
+/* Active Effect */
 #downloadBtn:active {
-  transform: translateY(2px); /* Press the button down */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduce shadow on click */
-}
-
-/* Focus effect (for accessibility) */
-#downloadBtn:focus {
-  outline: none; /* Remove the default focus outline */
-  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.5); /* Green outline for focus */
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* utils css */
@@ -299,4 +306,50 @@ td {
   font-size: 9px;
   font-family: TimesNewRomanPS-BoldMT_15;
   color: #000;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  #box {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  #marksBox {
+    padding: 20px;
+  }
+
+  #headBox {
+    padding: 15px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #downloadBtn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #content {
+    padding: 5px;
+  }
+
+  #marksBox {
+    padding: 15px;
+  }
+
+  #downloadBtn {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  td {
+    font-size: 12px;
+    padding: 5px;
+  }
 }
